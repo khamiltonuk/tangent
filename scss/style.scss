@@ -1,0 +1,311 @@
+// Variables 
+
+$link-base:         #660800;
+$highlight:         #fcb712;
+$link-alt:          #999;
+$brand-border:      1px solid #ccc;
+
+// Mixins
+@mixin transition($effect) {
+  -webkit-transition:$effect;
+      -ms-transition:$effect;
+          transition:$effect;
+}
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; 
+     -moz-box-sizing: $box-model; 
+          box-sizing: $box-model;
+}
+// structure
+.col-1 {
+  width: 170px;
+} 
+
+body {
+  color: #444;
+  width: 960px;
+  margin: 20px auto;
+  font: 87.5%/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+  margin: 0 0 20px;
+}
+
+
+a {
+  color: #2a7d96;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+  color: #143b47;
+  text-decoration: underline;
+  }
+}
+
+// Buttons
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #e6e6e6;
+  padding: 4px 14px;
+  color: #333;
+  font-size: 13px;
+  line-height: 18px;
+  border: $brand-border;
+  border-radius: 4px;
+}
+
+.btn:hover,
+.btn:focus {
+  text-decoration: none;
+}
+
+.btn.primary {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background-color: #1ea6c8;
+  border-color: #1ea6c8;
+  @include box-sizing(border-box);
+  &:hover,
+  &:focus {
+  color: #fff;
+  }
+}
+
+// Navigation
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav ul,
+nav li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav {
+  margin-bottom: 20px;
+  border: $brand-border;
+  background: #eee;
+}
+
+.main-nav ul > li {
+  float: left;
+}
+
+.main-nav ul > li > a {
+  display: block;
+  padding: 10px 20px;
+  border-left: 1px dashed #ccc;
+  &:hover,
+  &:focus {
+  text-decoration: none;
+  background: #fff;
+  }
+}
+
+.main-nav ul > li.active > a {
+  font-weight: bold;
+}
+
+.main-nav ul > li:first-child > a {
+  border-left: none;
+}
+
+.breadcrumb {
+  font-size: 12px;
+}
+
+.breadcrumb li {
+  display: inline;
+}
+
+.breadcrumb a {
+  color: $link-alt;
+  &:hover,
+  &:focus {
+  color: #2a7d96;
+  }
+}
+
+.breadcrumb li,
+.breadcrumb a {
+  margin-right: 5px;
+}
+
+.sub-nav {
+  float: left;
+  margin-right: 20px;
+  background: #eee;
+  border: $brand-border;
+  a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-bottom: 1px dashed #ccc;
+    &:hover,
+    &:focus {
+      background: #fff;
+    }
+  }
+}
+
+.sub-nav li:last-child a {
+  border-bottom: none;
+}
+
+.sub-nav ul ul li:last-child a {
+  border-bottom: 1px dashed #ccc;
+}
+
+.sub-nav a.current {
+  font-weight: bold;
+}
+
+.sub-nav ul ul a {
+  padding-left: 20px;
+  background: #f5f5f5;
+}
+
+// Layout
+
+.product-images {
+  float: left;
+  width: 270px;
+  margin-right: 20px;
+}
+
+.product-images img {
+  max-width: 100%;
+  margin-bottom: 20px;
+  padding: 4px;
+  background: #eee;
+  border: $brand-border;
+  @include box-sizing(border-box);
+}
+
+.product-info {
+  float: left;
+  width: 285px;
+  margin-right: 20px;
+}
+
+.product-info h2 {
+  margin-bottom: 0;
+}
+
+.read-more-container {
+  overflow: hidden;
+}
+
+// Basket 
+.basket {
+  float: left;
+  background: #eee;
+  border: $brand-border;
+  h2 {
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #fff;
+  }
+  ul {
+    margin: 0 0 10px;
+    padding: 10px 10px 0;
+    list-style: none;
+  }
+}
+
+.checkout {
+  padding: 10px 0;
+  background: #fff;
+  p {
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+}
+
+#foot {
+  margin-top: 40px;
+  padding-top: 20px;
+  color: $link-alt;
+  text-align: right;
+  border-top: 1px solid #eee;
+}
+
+#foot a {
+  color: $link-alt;
+  font-size: 12px;
+}
+
+// Lightbox
+
+.lightbox-container img {
+  float: left;
+  margin-right: 30px;
+  cursor: pointer;
+  //no support in ie8
+  &:nth-child(3) {
+    margin-right: 0;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000; /* graceful degradation */
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* position image if i dont know it's size in css3*/
+  border: 10px solid white;
+}
+
+// no-js
+
+.no-js {
+  .read-more {
+    display: none;
+  }
+}
+
+// Utilities
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+
